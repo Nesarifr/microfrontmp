@@ -18,6 +18,9 @@ let newTicket = {
     }
 }
 
+initMercadoPago(import.meta.env.VITE_PUBLICKEY,
+    {locale: "es-AR"});
+
 const urlBack = import.meta.env.VITE_URLBACK;
 
 export const Checkout = () => {
@@ -31,12 +34,7 @@ export const Checkout = () => {
     const queryParams = new URLSearchParams(location.search);
     const paramCode = queryParams.get("code"); 
     const paramState= queryParams.get("state");
-    
-    //configuracion de mercado pago
-    useEffect(()=>{
-        initMercadoPago(import.meta.env.VITE_PUBLICKEY,
-            {locale: "es-AR"});
-    }, [])
+
 
     useEffect(() => {
         if(paramCode && paramState){
