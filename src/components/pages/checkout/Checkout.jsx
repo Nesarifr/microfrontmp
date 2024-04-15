@@ -127,7 +127,7 @@ export const Checkout = () => {
             </Button>
                 {preferenceId && (
                     <Wallet
-                        initialization={{ preferenceId: preferenceId , }}
+                        initialization={{ preferenceId: preferenceId }}
                     />
                 )}
         </div>
