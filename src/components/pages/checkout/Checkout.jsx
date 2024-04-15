@@ -52,7 +52,7 @@ export const Checkout = () => {
     const createTokenAccess = async () => {
         try {
             await axios.get(
-                `${urlBack}/mp/oauth?code=${code}&state=${state}`);
+                `${urlBack}/mp/oauth?code=${paramCode}&state=${paramState}`);
 
         } catch (error) {
             console.log(error);
