@@ -129,7 +129,7 @@ export const Checkout = () => {
             </Button>
                 {preferenceId && (
                     <Wallet
-                        initialization={{ preferenceId }}
+                        initialization={{ preferenceId , redirectMode: "self"}}
                     />
                 )}
         </div>
