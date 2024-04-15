@@ -68,9 +68,7 @@ export const Checkout = () => {
             console.log(newArray);
             let response = await axios.post(`${urlBack}/shop/create-preference/2/buy`, newArray);
             console.log(response.data);
-            const {id}  = response.data;
-            console.log(id)
-            return id;
+            return response.data
         } catch (error) {
             console.log(error);
         }
