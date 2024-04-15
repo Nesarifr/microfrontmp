@@ -65,8 +65,7 @@ export const Checkout = () => {
             };
         });
         try {
-            console.log(newArray);
-            let response = await axios.post(`${urlBack}/shop/create-preference/2/buy`, newArray);
+            let response = await axios.post(`${urlBack}/shop/create-preference/2/buy`, {items: newArray});
             console.log(response.data);
             return response.data
         } catch (error) {
