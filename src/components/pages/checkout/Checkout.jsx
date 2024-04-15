@@ -26,6 +26,7 @@ const urlBack = import.meta.env.VITE_URLBACK;
 export const Checkout = () => {
     // preferencia del pedido, datos sobre la compra, el producto, metodo de pago etc
     const [preferenceId, setPreferenceId] = useState(null);
+    const [initPoint, setInitPoint] = useState(null);
     // datos del usuario
     const [profileData, setProfileData] = useState({id:1});
     const [tokenUrl, setTokenUrl] = useState(null);
@@ -128,7 +129,7 @@ export const Checkout = () => {
             </Button>
                 {preferenceId && (
                     <Wallet
-                        initialization={{ preferenceId}}
+                        initialization={{ preferenceId: preferenceId , }}
                     />
                 )}
         </div>
