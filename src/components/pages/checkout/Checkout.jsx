@@ -61,7 +61,7 @@ export const Checkout = () => {
         const newArray = cart.map((product) => {
             return {
                 id: product.id,
-                price: product.unit_price,
+                unit_price: product.unit_price,
                 quantity: product.quantity,
             };
         });
