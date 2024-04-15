@@ -21,7 +21,6 @@ let newTicket = {
 const urlBack = import.meta.env.VITE_URLBACK;
 
 export const Checkout = () => {
-    
     // preferencia del pedido, datos sobre la compra, el producto, metodo de pago etc
     const [preferenceId, setPreferenceId] = useState(null);
     // datos del usuario
@@ -53,7 +52,6 @@ export const Checkout = () => {
         try {
             await axios.get(
                 `${urlBack}/mp/oauth?code=${paramCode}&state=${paramState}`);
-
         } catch (error) {
             console.log(error);
         }
@@ -63,7 +61,7 @@ export const Checkout = () => {
         const newArray = cart.map((product) => {
             return {
                 id: product.id,
-                unit_price: product.unit_price,
+                price: product.unit_price,
                 quantity: product.quantity,
             };
         });
