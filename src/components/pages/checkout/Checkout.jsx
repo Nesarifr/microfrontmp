@@ -67,8 +67,8 @@ export const Checkout = () => {
         });
         try {
             console.log(newArray);
-            let response = await axios.post(
-                `${urlBack}/shop/create-preference/2/buy`,newArray);
+            let response = await axios.post(`${urlBack}/shop/create-preference/2/buy`, newArray);
+            console.log(response.data);
             const { id } = response.data;
             return id;
         } catch (error) {
@@ -78,6 +78,7 @@ export const Checkout = () => {
 
     const handleBuy = async () => {
         const id = await createPreference();
+        console.log(id);
         if (id) {
             console.log(id);
             setPreferenceId(id);
