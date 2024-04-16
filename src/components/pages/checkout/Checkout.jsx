@@ -81,7 +81,7 @@ export const Checkout = () => {
     };
 
     const handleBuy = async () => {
-        const id = await createPreference();
+        const {id} = await createPreference();
         console.log(id);
         if (id) {
             console.log(id);
