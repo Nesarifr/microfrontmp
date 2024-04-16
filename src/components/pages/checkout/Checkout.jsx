@@ -5,11 +5,11 @@ import {Button} from "@mui/material";
 import  axios  from "axios";
 
 //simulacion del carrito de compras, en localstorage quizas
-const cart = [{
+const cart = {
     id: 1,
     unit_price: 100,
     quantity: 1,
-}]; 
+}; 
 
 let newTicket = {
     "meta": "meta 2",
@@ -57,13 +57,11 @@ export const Checkout = () => {
     };
     // Crear las prefencia de compras con los datos obtenidos del front hacia el back
     const createPreference = async () => {
-        const newArray = cart.map((product) => {
-            return {
-                id: product.id,
-                unit_price: product.unit_price,
-                quantity: product.quantity,
+        const newArray = {
+                id: cart.id,
+                unit_price: cart.unit_price,
+                quantity: cart.quantity,
             };
-        });
             const body = {
                 "items": newArray,
                 "payer": {
