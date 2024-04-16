@@ -27,7 +27,7 @@ export const Checkout = () => {
     // preferencia del pedido, datos sobre la compra, el producto, metodo de pago etc
     const [preferenceId, setPreferenceId] = useState(null);
     const [initPoint, setInitPoint] = useState(null);
-    // datos del usuario
+    // datos del usuario comprador
     const [profileData, setProfileData] = useState({id:1});
     const [tokenUrl, setTokenUrl] = useState(null);
     // obtenecion del codigo de autorizacion de mercado pago
@@ -64,8 +64,17 @@ export const Checkout = () => {
                 quantity: product.quantity,
             };
         });
+            const body = {
+                "items": newArray,
+                "payer": {
+                    "email": "test_user_435626719@testuser.com",
+                    "name": "Lalo",
+                }
+            }
+
+            console.log(body)
         try {
-            let response = await axios.post(`${urlBack}/shop/create-preference/2/buy`, newArray);
+            let response = await axios.post(`${urlBack}/shop/create-preference`, body);
             console.log(response.data);
             return response.data
         } catch (error) {
