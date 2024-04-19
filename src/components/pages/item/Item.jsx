@@ -56,7 +56,7 @@ export const Item = () => {
     const handleBuy = async () => {
         const mp_url = await createPreference();
         if (mp_url) {
-            redirect(mp_url);
+            return redirect(mp_url);
         }
     };
 
