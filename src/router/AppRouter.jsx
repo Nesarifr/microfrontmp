@@ -1,13 +1,16 @@
 import {Route, Routes} from 'react-router-dom';
 import { Home } from '../components/pages/home/Home';
-import { Checkout } from '../components/pages/checkout/Checkout';
+import { Item } from '../components/pages/item/Item';
+import { AuthMP } from '../components/pages/authoMp/AuthMP';
 
 export const AppRouter = () => {
     return (
         <>
             <Routes>
-                <Route path="/*" element={<Checkout />} />
-                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/*" element={<Home />} />
+                <Route path="/item" element={<Item />} />
+                <Route path="/authmp" element={<AuthMP />} />
+
 
             </Routes>
         </>
