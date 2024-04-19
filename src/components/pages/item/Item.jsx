@@ -31,6 +31,7 @@ export const Item = () => {
             }
         try {
             let response = await axios.post(`${urlBack}/shop/create-preference`, body);
+            console.log(response.data);
             let {mp_url} = response.data;
             return mp_url;
         } catch (error) {
