@@ -29,7 +29,8 @@ export const Item = () => {
 
     useEffect(() => {
 
-        if(status === "approved"){
+        if(status == "approved"){
+            console.log("Compra exitosa!");
             alert("Compra exitosa!");
         }
         }, [status])
