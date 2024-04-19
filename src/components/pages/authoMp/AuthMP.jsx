@@ -48,7 +48,7 @@ export const AuthMP = () => {
     const handlerToken = async () => {
         try {
             let response = await axios.post(
-                `${urlBack}/profile/${profile.id}/auth-mp`, body);
+                `${urlBack}/profile/${profile.id}/auth-mp`);
             setTokenUrl(response.data.mp_url);
         } catch (error) {
             console.log(error);
