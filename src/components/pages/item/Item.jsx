@@ -2,7 +2,7 @@ import { initMercadoPago } from "@mercadopago/sdk-react";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 
 const cart = {
     id: 1,
@@ -56,7 +56,7 @@ export const Item = () => {
     const handleBuy = async () => {
         const mp_url = await createPreference();
         if (mp_url) {
-            navigate(mp_url);
+            redirect(mp_url);
         }
     };
 
