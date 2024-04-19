@@ -1,6 +1,7 @@
 import { initMercadoPago } from "@mercadopago/sdk-react";
 import { Button } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const cart = {
     id: 1,
@@ -19,6 +20,8 @@ initMercadoPago(import.meta.env.VITE_PUBLICKEY,
 const urlBack = import.meta.env.VITE_URLBACK;
 
 export const Item = () => {
+    const navigate = useNavigate();
+
     const createPreference = async () => {
         const newArray = {
                 id: cart.id,
@@ -31,9 +34,7 @@ export const Item = () => {
             }
         try {
             let response = await axios.post(`${urlBack}/shop/create-preference`, body);
-            console.log(response.data);
-            let {mp_url} = response.data;
-            return mp_url;
+            return response.data;
         } catch (error) {
             console.log(error);
         }
@@ -42,7 +43,7 @@ export const Item = () => {
     const handleBuy = async () => {
         const mp_url = await createPreference();
         if (mp_url) {
-            redirect(mp_url);
+            navigate(mp_url);
         }
     };
 
