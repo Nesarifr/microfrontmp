@@ -1,7 +1,8 @@
 import { initMercadoPago } from "@mercadopago/sdk-react";
 import { Button } from "@mui/material";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const cart = {
     id: 1,
@@ -21,6 +22,17 @@ const urlBack = import.meta.env.VITE_URLBACK;
 
 export const Item = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const queryParams = new URLSearchParams(location.search);
+    const status = queryParams.get("status");
+
+    useEffect(() => {
+
+        if(status === "approved"){
+            alert("Compra exitosa!");
+        }
+        }, [status])
 
     const createPreference = async () => {
         const newArray = {
