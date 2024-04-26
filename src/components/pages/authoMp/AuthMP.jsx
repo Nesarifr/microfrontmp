@@ -6,7 +6,7 @@ import  axios  from "axios";
 
 //simulacion del carrito de compras, en localstorage quizas
 const profile = {
-    id: 2,
+    id: 1,
     name: "Lalo",
     email: "test_user_435626719@testuser.com"
 };
